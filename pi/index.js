@@ -12,12 +12,14 @@
           console.log('failed' + error);
         } else {
           console.log('open');
+          jsonstr = JSON.parse(data);
+          console.log(data[open_animation]);
           serialPort.write("1",function(err,results) {
             console.log('err' + err);
             console.log('results' + results);
           });
         }
-      });      
+      });
     });
     socket.on('state_change', function(data){console.log(data)});
     socket.on('power', function(data){console.log(data)});
