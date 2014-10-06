@@ -1,0 +1,10 @@
+#!/bin/bash
+gpio export 4 out
+gpio mode 7 out
+gpio mode 7 up
+teensy_loader_cli -mmcu=mk20dx128 -w -v $1 &
+sleep 2
+gpio write 7 0
+sleep 2
+gpio write 7 1
+
